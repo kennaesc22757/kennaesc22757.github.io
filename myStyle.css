@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(250, 248, 218);
+}
+
+
+body a {
+    text-decoration: none;
+    color: rgb(98, 93, 168);
+    
+}
+
+body h1{
+    color: rgb(93, 82, 148);
+    text-align: center;
+    font-size: 40;
+    font-family: Cambria;
+}
+
+body h2{
+    text-align: left;
+    font-size: 30;
+    color: rgb(100, 95, 172);
+    font-family: Cambria;
+}
+ body li{
+    font-size: 30;
+    color: rgb(67, 62, 136);
+    font-family: Cambria;
+    
+ }
+ body h2{
+    text-align: left;
+ }
+
+ <head>
+ <link rel="icon" type="image/x-icon" href="favicon.jpg">
+
+ <style type="text/css">
+     a {text-decoration: none;}
+     a:hover {text-decoration: underline;}
+ </style>
+
+
+
+
+</head>
