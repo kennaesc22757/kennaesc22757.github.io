@@ -1,0 +1,118 @@
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+    <link rel="stylesheet" href="myStyle.css">
+    <style>
+        body h2{
+            text-align: center;
+            font-size: 50;
+        }
+    
+    </style>
+</head>
+</head>
+<body>
+<a href="index.html">Home</a>
+<a href="page1.html">Disney Movies</a>
+<a href="page2.html">Celebrities</a>
+<a href="page3.html">Disney Shows</a>
+<a href="page4.html">Game!</a>
+<ul>
+
+<h2>✩Ping Pong✩</h2>
+</body>
+<head>
+    <title>Ping Pong Game</title>
+    <style>
+      #game-area {
+        width: 600px;
+        height: 400px;
+        background-color: #f0f0f0;
+        position: relative;
+      }
+      #ball {
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+      }
+      #paddle {
+        width: 10px;
+        height: 80px;
+        background-color: #000;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-area">
+      <div id="ball"></div>
+      <div id="paddle"></div>
+    </div>
+  
+    <script>
+      // Get game elements
+      var gameArea = document.getElementById("game-area");
+      var ball = document.getElementById("ball");
+      var paddle = document.getElementById("paddle");
+  
+      // Set initial positions
+      var ballX = 290;
+      var ballY = 190;
+      var paddleY = 160;
+  
+      // Set initial ball direction
+      var ballDX = -1;
+      var ballDY = -1;
+  
+      // Update ball position
+      function updateBallPosition() {
+        ballX += ballDX;
+        ballY += ballDY;
+        ball.style.left = ballX + "px";
+        ball.style.top = ballY + "px";
+      }
+  
+      // Update paddle position
+      function updatePaddlePosition(event) {
+        var mouseY = event.clientY - gameArea.offsetTop;
+        paddleY = mouseY - paddle.offsetHeight / 2;
+        paddle.style.top = paddleY + "px";
+      }
+  
+      // Check ball collision with game area boundaries
+      function checkCollision() {
+        if (ballY <= 0 || ballY >= gameArea.offsetHeight - ball.offsetHeight) {
+          ballDY *= -1;
+        }
+        if (ballX <= 0 || ballX >= gameArea.offsetWidth - ball.offsetWidth) {
+          ballDX *= -1;
+        }
+      }
+  
+      // Check ball collision with paddle
+      function checkPaddleCollision() {
+        if (
+          ballX <= paddle.offsetWidth &&
+          ballY + ball.offsetHeight >= paddleY &&
+          ballY <= paddleY + paddle.offsetHeight
+        ) {
+          ballDX *= -1;
+        }
+      }
+  
+      // Game loop
+      function gameLoop() {
+        updateBallPosition();
+        checkCollision();
+        checkPaddleCollision();
+      }
+  
+      // Start the game loop
+      setInterval(gameLoop, 10);
+  
+      // Add event listener for mouse movement
+      gameArea.addEventListener("mousemove", updatePaddlePosition);
+    </script>
+  </body>
+  </html>
